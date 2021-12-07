@@ -1,9 +1,39 @@
-function seed() {}
+function seed() {
 
-function same([x, y], [j, k]) {}
+  
+ return Array.from(arguments);
+  
+
+
+}
+
+function same([x, y], [j, k]) {
+
+  let Issame = new Boolean(false);
+
+
+  if (x === j & y === k) {
+
+    Issame = true
+
+  }
+  else {
+    Issame = false
+  }
+
+  return Issame
+
+}
 
 // The game state to search for `cell` is passed as the `this` value of the function.
-function contains(cell) {}
+function contains(cell) {
+
+
+
+
+
+  
+}
 
 const printCell = (cell, state) => {};
 
