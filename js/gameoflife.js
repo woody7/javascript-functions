@@ -29,12 +29,7 @@ function same([x, y], [j, k]) {
 function contains(cell) {
 
 
-  for(let i = 0; i < this.length; i++){
-    if(same(this[i], cell)){
-      return true;
-    }
-  }
-  return false;
+  return this.some((c) => same(c, cell));
 
 
 
