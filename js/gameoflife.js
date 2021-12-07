@@ -57,7 +57,14 @@ const corners = (state = []) => {
 
   if(state.length === 0){
 
-    return {topRight:[0,0], bottomLeft: [0,0]};
+    return {
+      
+      topRight:[0,0], 
+      
+      bottomLeft: [0,0]
+    
+    
+    }
 
 
   }
@@ -117,7 +124,22 @@ const willBeAlive = (cell, state) => {
 
 };
 
-const calculateNext = (state) => {};
+const calculateNext = (state) => {
+
+  let alive = [];
+  const edges = corners(state);
+
+  for(let row = edges.topRight[0]+1; row >= edges.bottomLeft[0]-1; row--){
+    for(let col = edges.bottomLeft[1]-1; col <= edges.topRight[1]+1; col++){
+      if(willBeAlive([row, col],state)){
+        alive.push([row,col])
+      }
+    }
+  }
+  return alive;
+
+
+};
 
 const iterate = (state, iterations) => {};
 
