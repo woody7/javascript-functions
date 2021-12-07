@@ -141,7 +141,19 @@ const calculateNext = (state) => {
 
 };
 
-const iterate = (state, iterations) => {};
+const iterate = (state, iterations) => {
+
+  let num_states = [];
+  num_states.push(state);
+  while(iterations > 0){
+    num_states.push(calculateNext(state));
+    state = calculateNext(state);
+    iterations--;
+  }
+  return num_states;
+
+
+};
 
 const main = (pattern, iterations) => {};
 
