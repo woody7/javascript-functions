@@ -74,13 +74,48 @@ const corners = (state = []) => {
 
 };
 
-const printCells = (state) => {};
+const printCells = (state) => {
 
-const getNeighborsOf = ([x, y]) => {};
+  let edges = corners(state);
+  let string = "";
+  for(let row = edges.topRight[0]; row >= edges.bottomLeft[0]; row--){
+    for(let col = edges.bottomLeft[1]; col <= edges.topRight[1]; col++){
+      string  = string + printCell([row, col], state);
+    }
+    string += "\n";
+  }
+  return string;
 
-const getLivingNeighbors = (cell, state) => {};
 
-const willBeAlive = (cell, state) => {};
+};
+
+const getNeighborsOf = ([x, y]) => {
+
+
+  return [[x-1,y-1],[x, y-1], [x+1, y-1],[x-1,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]];
+
+};
+
+const getLivingNeighbors = (cell, state) => {
+
+
+  let l = [];
+  getNeighborsOf(cell).forEach(x => {
+    if(contains.call(state,x)){
+      l.push(x)
+    }
+  });
+  return l;
+
+};
+
+const willBeAlive = (cell, state) => {
+
+  let zeroneighbor = getLivingNeighbors(cell, state).length;
+  return (zeroneighbor === 3) || (zeroneighbor === 2 & contains.call(state,cell));
+
+
+};
 
 const calculateNext = (state) => {};
 
