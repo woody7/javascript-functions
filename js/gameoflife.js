@@ -43,7 +43,7 @@ const printCell = (cell, state) => {
 
     return '\u25A3';
 
-    
+
   }
   else{
     return '\u25A2';
@@ -52,7 +52,27 @@ const printCell = (cell, state) => {
 
 };
 
-const corners = (state = []) => {};
+const corners = (state = []) => {
+
+
+  if(state.length === 0){
+
+    return {topRight:[0,0], bottomLeft: [0,0]};
+
+
+  }
+
+  const horizontals = state.map(([x, _]) => x);
+  const verticals = state.map(([_, y]) => y);
+
+  return {
+
+    topRight: [Math.max(...horizontals), Math.max(...horizontals)],
+    bottomLeft: [Math.min(...verticals), Math.min(...verticals)],
+  }
+
+
+};
 
 const printCells = (state) => {};
 
