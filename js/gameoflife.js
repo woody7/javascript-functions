@@ -69,13 +69,13 @@ const corners = (state = []) => {
 
   }
 
-  const horizontals = state.map(([x, _]) => x);
-  const verticals = state.map(([_, y]) => y);
+  const horizontal = state.map(([x, _]) => x);
+  const vertical = state.map(([_, y]) => y);
 
   return {
 
-    topRight: [Math.max(...horizontals), Math.max(...horizontals)],
-    bottomLeft: [Math.min(...verticals), Math.min(...verticals)]
+    topRight: [Math.max(...horizontal), Math.max(...vertical)],
+    bottomLeft: [Math.min(...horizontal), Math.min(...vertical)]
   }
 
 
